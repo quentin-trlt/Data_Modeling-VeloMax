@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{528CB07E-1EDD-4FA3-98F9-6987EACBC81D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VeloMax</RootNamespace>
+    <AssemblyName>VeloMax</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>packages\BouncyCastle.Cryptography.2.3.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.4.0\lib\net462\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Pipelines.8.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AjouterClientPartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterClientPartForm.Designer.cs">
+      <DependentUpon>AjouterClientPartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterClientProForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterClientProForm.Designer.cs">
+      <DependentUpon>AjouterClientProForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterCommandeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterCommandeForm.Designer.cs">
+      <DependentUpon>AjouterCommandeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterEmployeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterEmployeForm.Designer.cs">
+      <DependentUpon>AjouterEmployeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterFournisseurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterFournisseurForm.Designer.cs">
+      <DependentUpon>AjouterFournisseurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterLigneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterLigneForm.Designer.cs">
+      <DependentUpon>AjouterLigneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterModeleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterModeleForm.Designer.cs">
+      <DependentUpon>AjouterModeleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsForm.Designer.cs">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsPartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsPartForm.Designer.cs">
+      <DependentUpon>ClientsPartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsProForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsProForm.Designer.cs">
+      <DependentUpon>ClientsProForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommandesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommandesForm.Designer.cs">
+      <DependentUpon>CommandesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployesForm.Designer.cs">
+      <DependentUpon>EmployesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListeModeles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListeModeles.Designer.cs">
+      <DependentUpon>FormListeModeles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FournisseurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FournisseurForm.Designer.cs">
+      <DependentUpon>FournisseurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierClientPartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierClientPartForm.Designer.cs">
+      <DependentUpon>ModifierClientPartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierClientProForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierClientProForm.Designer.cs">
+      <DependentUpon>ModifierClientProForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierFournisseurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierFournisseurForm.Designer.cs">
+      <DependentUpon>ModifierFournisseurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierModeleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierModeleForm.Designer.cs">
+      <DependentUpon>ModifierModeleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpForm.Designer.cs">
+      <DependentUpon>PopUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StatistiquesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatistiquesForm.Designer.cs">
+      <DependentUpon>StatistiquesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockForm.Designer.cs">
+      <DependentUpon>StockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockPieceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockPieceForm.Designer.cs">
+      <DependentUpon>StockPieceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockVeloForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockVeloForm.Designer.cs">
+      <DependentUpon>StockVeloForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerClientPartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerClientPartForm.Designer.cs">
+      <DependentUpon>SupprimerClientPartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerClientProForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerClientProForm.Designer.cs">
+      <DependentUpon>SupprimerClientProForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerCommandeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerCommandeForm.Designer.cs">
+      <DependentUpon>SupprimerCommandeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerEmployeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerEmployeForm.Designer.cs">
+      <DependentUpon>SupprimerEmployeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerFournisseurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerFournisseurForm.Designer.cs">
+      <DependentUpon>SupprimerFournisseurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerModeleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerModeleForm.Designer.cs">
+      <DependentUpon>SupprimerModeleForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AjouterClientPartForm.resx">
+      <DependentUpon>AjouterClientPartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterClientProForm.resx">
+      <DependentUpon>AjouterClientProForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterCommandeForm.resx">
+      <DependentUpon>AjouterCommandeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterEmployeForm.resx">
+      <DependentUpon>AjouterEmployeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterFournisseurForm.resx">
+      <DependentUpon>AjouterFournisseurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterLigneForm.resx">
+      <DependentUpon>AjouterLigneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterModeleForm.resx">
+      <DependentUpon>AjouterModeleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsForm.resx">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsPartForm.resx">
+      <DependentUpon>ClientsPartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsProForm.resx">
+      <DependentUpon>ClientsProForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandesForm.resx">
+      <DependentUpon>CommandesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployesForm.resx">
+      <DependentUpon>EmployesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListeModeles.resx">
+      <DependentUpon>FormListeModeles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FournisseurForm.resx">
+      <DependentUpon>FournisseurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierClientPartForm.resx">
+      <DependentUpon>ModifierClientPartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierClientProForm.resx">
+      <DependentUpon>ModifierClientProForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierFournisseurForm.resx">
+      <DependentUpon>ModifierFournisseurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierModeleForm.resx">
+      <DependentUpon>ModifierModeleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpForm.resx">
+      <DependentUpon>PopUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="StatistiquesForm.resx">
+      <DependentUpon>StatistiquesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockForm.resx">
+      <DependentUpon>StockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockPieceForm.resx">
+      <DependentUpon>StockPieceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockVeloForm.resx">
+      <DependentUpon>StockVeloForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerClientPartForm.resx">
+      <DependentUpon>SupprimerClientPartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerClientProForm.resx">
+      <DependentUpon>SupprimerClientProForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerCommandeForm.resx">
+      <DependentUpon>SupprimerCommandeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerEmployeForm.resx">
+      <DependentUpon>SupprimerEmployeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerFournisseurForm.resx">
+      <DependentUpon>SupprimerFournisseurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerModeleForm.resx">
+      <DependentUpon>SupprimerModeleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_0cf996c5-1026-4552-b7ce-4c88a425c67e.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2024-05-02 à 19.44.02_71a2bf5f.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
